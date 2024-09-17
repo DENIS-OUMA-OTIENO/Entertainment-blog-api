@@ -6,7 +6,7 @@ const cors = require('cors')
 const allowCors = require('./config/allowCors')
 const connectDB = require('./config/dbConn')
 const mongoose = require('mongoose')
-const PORT = process.env.PORT || 3500
+const port = process.env.PORT || 3500
 const cookieParser = require('cookie-parser')
 
 
@@ -37,7 +37,7 @@ app.all('*', (req, res) => {
 })
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB')
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+    app.listen(port, () => console.log(`Server running on port ${port}`))
 })
 
 mongoose.connection.on('error', (err) => {
